@@ -1,37 +1,72 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../api";
 
-function AddLead({ onAdd }) {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [destination, setDestination] = useState("");
+function LeadDetail({ lead }) {
+  const [messages, setMessages] = useState([]);
+  const [text, setText] = useState("");
+  const [status, setStatus] = useState(lead.status);
 
-  const handleAdd = async () => {
-    if (!phone) return alert("Phone required");
+  useEffect(() => {
+    fetchMessages();
+  }, [lead]);
 
-    await API.post("/lead", {
-      name,
-      phone,
-      destination
+  const fetchMessages = async () => {
+    const res = await API.get(`/messages/${lead.phone}`);
+    setMessages(res.data);
+  };
+
+  const sendMessage = async () => {
+    if (!text) return;
+
+    await API.post("/send-message", {
+      phone: lead.phone,
+      message: text
     });
 
-    setName("");
-    setPhone("");
-    setDestination("");
-    onAdd();
+    setText("");
+    fetchMessages();
+  };
+
+  const updateStatus = async () => {
+    await API.put(`/lead/${lead._id}`, { status });
+    alert("Status updated");
   };
 
   return (
     <div>
-      <input placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-      <br />
-      <input placeholder="Phone" value={phone} onChange={e => setPhone(e.target.value)} />
-      <br />
-      <input placeholder="Destination" value={destination} onChange={e => setDestination(e.target.value)} />
-      <br />
-      <button onClick={handleAdd}>Add Lead</button>
+      <h2>{lead.name || "Unknown"}</h2>
+      <p>{lead.phone}</p>
+      <p>{lead.destination}</p>
+
+      {/* STATUS */}
+      <select value={status} onChange={(e) => setStatus(e.target.value)}>
+        <option value="new">New</option>
+        <option value="contacted">Contacted</option>
+        <option value="quoted">Quoted</option>
+        <option value="converted">Converted</option>
+      </select>
+      <button onClick={updateStatus}>Update</button>
+
+      {/* CHAT */}
+      <div className="chat-box">
+        {messages.map((msg, i) => (
+          <div key={i} className="message">
+            <strong>{msg.sender}:</strong> {msg.message}
+          </div>
+        ))}
+      </div>
+
+      {/* INPUT */}
+      <div className="input-box">
+        <input
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Type message..."
+        />
+        <button onClick={sendMessage}>Send</button>
+      </div>
     </div>
   );
 }
 
-export default AddLead;
+export default LeadDetail;
