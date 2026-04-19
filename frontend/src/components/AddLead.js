@@ -11,8 +11,8 @@ function LeadDetail({ lead }) {
   }, [lead]);
 
   const fetchMessages = async () => {
-    const res = await API.get(`/messages/${lead.phone}`);
-    setMessages(res.data);
+   // const res = await API.get(`/messages/${lead.phone}`);
+   // setMessages(res.data);
   };
 
   const sendMessage = async () => {
@@ -69,4 +69,4 @@ function LeadDetail({ lead }) {
   );
 }
 
-export default LeadDetail;
+//export default LeadDetail;
