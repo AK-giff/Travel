@@ -91,5 +91,5 @@ setInterval(async () => {
   }
 }, 3600000);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(Server running on ${PORT}));
+//const PORT = process.env.PORT || 3000;
+//app.listen(PORT, () => console.log(Server running on ${PORT}));
