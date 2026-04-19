@@ -69,4 +69,4 @@ function LeadDetail({ lead }) {
   );
 }
 
-//export default LeadDetail;
+export default LeadDetail;
