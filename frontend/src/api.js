@@ -1,5 +1,5 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://your-render-url.onrender.com" // change after deploy
+  baseURL: "https://travel-gpvh.onrender.com" // change after deploy
 });
