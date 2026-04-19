@@ -7,7 +7,15 @@ const Lead = require("./models/Lead");
 const Message = require("./models/Message");
 const { sendMessage } = require("./services/whatsapp");
 
+const port = process.env.PORT || 3000
 const app = express();
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
+
+
 app.use(cors());
 app.use(express.json());
 
