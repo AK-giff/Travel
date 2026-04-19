@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import API from "../api.js";
+import API from "../api";
 
 function LeadList({ onSelect, refresh }) {
   const [leads, setLeads] = useState([]);
