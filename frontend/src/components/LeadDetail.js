@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import API from "../api.js";
+import API from "../api";
 
 function LeadDetail({ lead }) {
   const [messages, setMessages] = useState([]);
