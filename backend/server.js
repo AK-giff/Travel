@@ -84,8 +84,8 @@ setInterval(async () => {
 
     if (hours > 24) {
       await sendMessage(
-        lead.phone,
-        Hi! Just checking on your ${lead.destination || "trip"} 😊
+       // lead.phone,
+       // Hi! Just checking on your ${lead.destination || "trip"} 😊
       );
     }
   }
