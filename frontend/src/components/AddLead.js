@@ -4,7 +4,7 @@ import API from "../api";
 function AddLead({ lead }) {
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
-  const [status, setStatus] = useState(lead.status);
+ // const [status, setStatus] = useState(lead.status);
 
   useEffect(() => {
     fetchMessages();
