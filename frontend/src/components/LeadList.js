@@ -9,8 +9,8 @@ function LeadList({ onSelect, refresh }) {
   }, [refresh]);
 
   const fetchLeads = async () => {
-    const res = await API.get("/lead");
-    setLeads(res.data);
+ //   const res = await API.get("/lead");
+ //  setLeads(res.data);
   };
 
   return (
