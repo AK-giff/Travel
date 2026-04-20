@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import API from "../api";
 
 function AddLead({ lead }) {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState("[]");   //remove " later
   const [text, setText] = useState("");
- // const [status, setStatus] = useState(lead.status);
+  const [status, setStatus] = useState(lead.status);
 
   useEffect(() => {
     fetchMessages();
@@ -39,14 +39,14 @@ function AddLead({ lead }) {
       <p>{lead.destination}</p>
 
       {/* STATUS */}
-      <select value={status} onChange={(e) => setStatus(e.target.value)}>
+    /*  <select value={status} onChange={(e) => setStatus(e.target.value)}>
         <option value="new">New</option>
         <option value="contacted">Contacted</option>
         <option value="quoted">Quoted</option>
         <option value="converted">Converted</option>
       </select>
       <button onClick={updateStatus}>Update</button>
-
+     */
       {/* CHAT */}
       <div className="chat-box">
         {messages.map((msg, i) => (
