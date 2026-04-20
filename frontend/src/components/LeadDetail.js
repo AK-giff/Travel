@@ -11,15 +11,15 @@ function LeadDetail({ lead }) {
   }, [lead]);
 
   const fetchMessages = async () => {
-    const res = await API.get(/messages/${lead.phone});
-    setMessages(res.data);
+  //  const res = await API.get(/messages/${lead.phone});
+  // setMessages(res.data);
   };
 
   const sendMessage = async () => {
     if (!text) return;
 
     await API.post("/send-message", {
-      phone: lead.phone,
+    //  phone: lead.phone,
       message: text
     });
 
@@ -28,7 +28,7 @@ function LeadDetail({ lead }) {
   };
 
   const updateStatus = async () => {
-    await API.put(/lead/${lead._id}, { status });
+   // await API.put(/lead/${lead._id}, { status });
     alert("Status updated");
   };
 
