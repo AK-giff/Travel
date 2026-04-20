@@ -34,9 +34,9 @@ function AddLead({ lead }) {
 
   return (
     <div>
-      <h2>{lead.name || "Unknown"}</h2>
-      <p>{lead.phone}</p>
-      <p>{lead.destination}</p>
+     // <h2>{lead.name || "Unknown"}</h2>
+    //  <p>{lead.phone}</p>
+    //  <p>{lead.destination}</p>
 
       {/* STATUS */}
     /*  <select value={status} onChange={(e) => setStatus(e.target.value)}>
@@ -51,7 +51,7 @@ function AddLead({ lead }) {
       <div className="chat-box">
         {messages.map((msg, i) => (
           <div key={i} className="message">
-            <strong>{msg.sender}:</strong> {msg.message}
+        //    <strong>{msg.sender}:</strong> {msg.message}
           </div>
         ))}
       </div>
@@ -60,7 +60,7 @@ function AddLead({ lead }) {
       <div className="input-box">
         <input
           value={text}
-          onChange={(e) => setText(e.target.value)}
+       //   onChange={(e) => setText(e.target.value)}
           placeholder="Type message..."
         />
         <button onClick={sendMessage}>Send</button>
