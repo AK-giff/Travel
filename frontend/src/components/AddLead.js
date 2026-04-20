@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "../api";
 
 function AddLead({ lead }) {
-  const [messages, setMessages] = useState("[]");   //remove " later
+  const [messages, setMessages] = useState("");   //remove " later & add []
   const [text, setText] = useState("");
   //const [status, setStatus] = useState(lead.status);
 
