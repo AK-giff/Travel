@@ -19,7 +19,7 @@ function LeadDetail({ lead }) {
     if (!text) return;
 
     await API.post("/send-message", {
-      phone: lead.phone,
+    //  phone: lead.phone,
       message: text
     });
 
@@ -28,7 +28,7 @@ function LeadDetail({ lead }) {
   };
 
   const updateStatus = async () => {
-    await API.put(`/lead/${lead._id}`, { status });
+   // await API.put(`/lead/${lead._id}`, { status });
     alert("Status updated");
   };
 
